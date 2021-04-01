@@ -3,9 +3,9 @@ import {Link} from 'react-router-dom'
 const Navbar = () => {
     return (
       <nav className='navbar navbar-expand-lg navbar-dark bg-primary'>
-        <a className='navbar-brand' href='#'>
-          The Members of Team Alkali
-        </a>
+        <Link className='navbar-brand' to='/'>
+            Team Alkali
+        </Link>
         <button
           className='navbar-toggler'
           type='button'
@@ -21,11 +21,14 @@ const Navbar = () => {
                 <Link className="nav-link" to="/">
                     Home
                 </Link>
-                <Link className="nav-link" to="/Members">
+                <Link className="nav-link" to="/members">
                     Members
                 </Link>
-                <Link className="nav-link" to="/Member">
+                <Link className="nav-link" to="/member">
                     Member 
+                </Link>
+                <Link className="nav-link" to="/addmember">
+                    Join
                 </Link>
           </div>
         </div>
