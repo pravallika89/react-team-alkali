@@ -1,4 +1,4 @@
-const AddMemberPage()=>{
+const AddMemberPage=()=>{
   return(
     <div>
     </div>
