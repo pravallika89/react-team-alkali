@@ -1,6 +1,7 @@
 const AddMemberPage=()=>{
   return(
-    <div>
+    <div className='container text-center'>
+      <h2>This is AddMembers</h2>
     </div>
   )
 };
