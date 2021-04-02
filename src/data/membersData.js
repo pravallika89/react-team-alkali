@@ -49,7 +49,7 @@ export const membersData = [
         bio: 'lorem ipsum',
         profile_img: 'https://media-exp1.licdn.com/dms/image/C4E03AQHyFKY2L-h3Xw/profile-displayphoto-shrink_200_200/0/1616519627952?e=1622678400&v=beta&t=q4gfJZVfvc9jqMy0gBYYZSxfXf1otB7hyQ3J-Pgb31I',
         languages: ['html','css', 'javascript', 'react'],
-        featured: true,
+        featured: false,
     },
     {
         id: 5,
@@ -75,7 +75,7 @@ export const membersData = [
         bio:'lorem ipsum',
         profile_img:'https://media-exp1.licdn.com/dms/image/C5603AQG-X6R81-W7wA/profile-displayphoto-shrink_800_800/0/1617224479322?e=1622678400&v=beta&t=rEP8dIh2J41XRE3KZtUqb8d954YybPS3OCukwZEu1C4',
         languages:['html','css','react','javascript','java'],
-        featured: true,
+        featured: false,
     },
     {
         id: 7, 
@@ -88,7 +88,7 @@ export const membersData = [
         bio: 'lorem ipsum',
         profile_img: 'https://ca.slack-edge.com/T03A6AQRX-U01MRFW8PGA-e931aafaaa4d-512',
         languages: ['html','css', 'javascript'],
-        featured: true,
+        featured: false,
     },
     {
         id: 8,

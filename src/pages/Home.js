@@ -7,27 +7,11 @@ import { FaStar, FaRegStar } from 'react-icons/fa';
 
 const HomePage=()=>{
   const [members,setMembers] = useState([]);
-  const [alert,setAlert]=useState(false);
-
+  
   useEffect(() => {
     let featured = membersData.filter(member => member.featured);
     setMembers(featured);
-  }, [alert]);
-
-  const updateFeatured=(memberId)=>{
-    //first find the member from memberData by member Id
-    let foundMember=membersData.find(member=>member.id===+memberId);
-    //updated foundMember.featured to be opposite of its current value
-    foundMember.featured=!foundMember.featured;
-    showAlert();
-  }
-
-  const showAlert=()=>{
-    setAlert(true);
-    setTimeout(()=>{
-      setAlert(false);
-    },2000)
-  }
+  }, []);
 
  return(
     <div id='home-page' className='container text-center'>
@@ -47,16 +31,15 @@ const HomePage=()=>{
       <div className='row'>
         {members.map((member) => {
           return (
-            <div className='col-sm-12 col-md-3' key={member.id}>
-              <div className="card mb-3" >
-                {/* Header */}
-                {/* <div className='card-header text-center' >  {member.role}</div> */}
-                {/* Image */}
-                  <img
-                    src={member.profile_img}
-                    alt={member.lastName}
-                    className='card-img-top rounded-circle'
-                    />
+            <div className='col-md-6 offset-md-3' key={member.id}>
+              
+              <div className="card mb-3" > {/* card */}
+               {/* Image */}
+                <img
+                  src={member.profile_img}
+                  alt={member.lastName}
+                  className='card-img-top rounded-circle'
+                  />
                 {/* Body */}
                 <div className='card-body'>
                   <h4 className='card-title'>
@@ -103,13 +86,13 @@ const HomePage=()=>{
                     <Link to={`/members/${member.id}`} className='card-link'>
                     View Profile
                     </Link>
-                    <a href='javascript:void(0)' className='card-link'
-                    onClick={()=>updateFeatured(member.id)}>
+                    <a href='javascript:void(0)' className='card-link'>
                     {member.featured ? <FaStar /> : <FaRegStar />}
                     </a>
                   </div>
-                </div>
-              </div>
+                     
+                </div>  
+              </div> {/* card */}
             </div>  
           );
         })}
