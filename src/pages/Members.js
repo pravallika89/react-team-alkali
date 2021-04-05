@@ -1,3 +1,4 @@
+
 import {useState,useEffect} from 'react';
 import MemberCardComponent from '../components/MemberCard.js'
 import {membersData} from '../data/membersData.js';
@@ -84,4 +85,5 @@ const MembersPage =()=>{
     </div>
   )
 }
-export default MembersPage;
+
+export default Members;

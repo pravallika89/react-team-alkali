@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+
 import { FaStar, FaRegStar } from 'react-icons/fa';
 import '../App.css'
 
@@ -51,5 +52,4 @@ const MemberCardComponent=({member,updateFeatured})=>{
     </div>
   );
 }
-
-export default MemberCardComponent;
+export default MemberCard;
