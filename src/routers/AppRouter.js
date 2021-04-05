@@ -13,7 +13,7 @@ const AppRouter=()=>{
       <Switch>
         <Route path='/' exact component={HomePage}></Route>
         <Route path='/members' exact component={MembersPage}></Route>
-        <Route path='/member/:memberId' exact component={MemberPage}></Route>
+        <Route path='/members/:memberId'  component={MemberPage}></Route>
         <Route path='/addmember' exact component={AddMemberPage}></Route>
 
       </Switch>
