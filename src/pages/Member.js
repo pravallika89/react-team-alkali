@@ -30,8 +30,8 @@ const MemberPage=()=>{
     
   },[member,memberId,alert]);
 
-  const updateFeatured= (supId)=>{
-    let foundMember=membersData.find(m=>m.id===+supId);
+  const updateFeatured= (memId)=>{
+    let foundMember=membersData.find(m=>m.id===+memId);
     foundMember.featured=!foundMember.featured
     
     setAlert(true);
