@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import {useEffect,useState} from 'react';
 import {useParams} from 'react-router-dom';
 import {membersData} from '../data/membersData.js';
-import { FaStar, FaRegStar } from 'react-icons/fa';
+// import { FaStar, FaRegStar } from 'react-icons/fa';
 import MemberCardComponent from '../components/MemberCard.js';
 import '../App.css';
 const MemberPage=()=>{
@@ -30,8 +30,8 @@ const MemberPage=()=>{
     
   },[member,memberId,alert]);
 
-  const updateFeatured= (supId)=>{
-    let foundMember=membersData.find(m=>m.id===+supId);
+  const updateFeatured= (memId)=>{
+    let foundMember=membersData.find(m=>m.id===+memId);
     foundMember.featured=!foundMember.featured
     
     setAlert(true);
@@ -58,7 +58,7 @@ const MemberPage=()=>{
                 <div className='th-card-header d-flex justify-content-between'>
                   <span>
                     <a href="javascript:void(0)"
-                    onClick={()=>{updateFeatured(member.id)}}>{member.featured ? <FaStar style={{color:'gold'}} /> : <FaRegStar />}</a>
+                    onClick={()=>{updateFeatured(member.id)}}>{member.featured}</a>
                   </span>
                   <span>
                     {member.role}
