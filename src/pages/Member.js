@@ -1,8 +1,8 @@
-import { Link } from 'react-router-dom';
+
 import {useEffect,useState} from 'react';
 import {useParams} from 'react-router-dom';
 import {membersData} from '../data/membersData.js';
-// import { FaStar, FaRegStar } from 'react-icons/fa';
+import { FaStar, FaRegStar } from 'react-icons/fa';
 import MemberCardComponent from '../components/MemberCard.js';
 import '../App.css';
 const MemberPage=()=>{
@@ -21,24 +21,13 @@ const MemberPage=()=>{
   });
   
 
-  const[alert,setAlert]=useState(false);
-
   useEffect(()=>{
     let foundMember=membersData.find(m=>m.id===+memberId);
-    // console.log(foundHero);
     setMember(foundMember);
     
-  },[member,memberId,alert]);
+  },[member,memberId]);
 
-  const updateFeatured= (memId)=>{
-    let foundMember=membersData.find(m=>m.id===+memId);
-    foundMember.featured=!foundMember.featured
-    
-    setAlert(true);
-    setTimeout(()=>{
-      setAlert(false);
-    },2000);
-  };
+ 
   return(
     <div id='member'>
 
@@ -56,46 +45,66 @@ const MemberPage=()=>{
               <div className='card-body'>
                
                 <div className='th-card-header d-flex justify-content-between'>
+
                   <span>
                     <a href="javascript:void(0)"
-                    onClick={()=>{updateFeatured(member.id)}}>{member.featured}</a>
+                    >{member.featured ? <FaStar style={{color:'orange'}} /> : <FaRegStar />} </a>
                   </span>
+
                   <span>
                     {member.role}
                   </span>
+
                 </div>
                 {/* member name */}
+                
                 <div className='th-card-name my-3'>
                   <h2>
-                    <span>{member.firstName}, </span>
-                    <em>AKA {member.lastName}</em>
+                    <span>{member.firstName} {member.lastName} </span>
                   </h2>
                 </div>
+
                 {/* member details */}
                 <div className='th-card-details'>
 
-                <div className='detail'>
-                  <h4 className='text-primary'>Bio</h4>
-                  <p className='ml-5'>{member.bio}</p>
+                  <div className="my-2">
+                    <strong>Email: </strong>
+                    {member.email}
                   </div>
+                  <div className="my-2">
+                    <a 
+                      href={member.linkedIn}
+                      className='card-link'
+                      target='_blank'
+                      rel='noreferrer noopener'> 
+                      LinkedIn
+                    </a>
 
-                 
+                    <a 
+                      href={member.github}
+                      className='card-link'
+                      target='_blank'
+                      rel='noreferrer noopener'> 
+                      Github
+                    </a>
+                  </div>
+                  
 
                   <div className='detail'>
-                  <h4 className='text-primary'>email</h4>
-                  <p className='ml-5'>{member.email}</p>
-                  </div>
-
-                  <div className='detail'>
-                  <h4 className='text-primary'>Languages</h4>
-                  <p className='ml-5'>{member.languages ?.map((language,i)=>{
+                  <h5 className='text-primary'>Languages</h5>
+                  <p className='ml-5'>
+                    {member.languages ?.map((language,i)=>{
                     return(
-                      <span key={i}>
+                      <span className="badge badge-pill badge-success" key={i}>
                         {language}
-                        {i === member.languages.length - 1 ? '' : ', '}
                         </span>
                     )
                   })}</p>
+                  </div>
+
+                  <div className='detail'>
+                    <h5 className='text-primary'>About Me</h5>
+                      <p className='ml-5'>{member.bio}</p>
                   </div>
                   
                 </div>
@@ -111,7 +120,7 @@ const MemberPage=()=>{
             <div className='col-sm-12 col-md-3' key={member.id} >
               <MemberCardComponent 
               member={member}
-              updateFeatured={updateFeatured}
+              // updateFeatured={updateFeatured}
               />
             </div>
           )
