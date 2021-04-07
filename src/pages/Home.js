@@ -74,7 +74,7 @@ const HomePage=()=>{
                     <strong>Languages: </strong>
                     {member.languages.map((language, i) => {
                     return (
-                    <small key={i}>
+                    <small className="badge badge-pill badge-success" key={i}>
                     {language}
                     {i === member.languages.length - 1 ? '' : ', '}
                     </small>
