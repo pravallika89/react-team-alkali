@@ -17,7 +17,7 @@ const AppRouter=()=>{
   const[github,setGithub]=useState('');
   const[bio,setBio]=useState('');
   const[profile_img,setProfile_img]=useState('');
-  const[languages,setLanguages]=useState('');
+  const[languages,setLanguages]=useState([]);
   return(
     <div>
       <Navbar />
