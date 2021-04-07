@@ -1,49 +1,45 @@
 import {useState} from 'react';
 import {membersData} from '../data/membersData';
 
-const AddMemberPage=()=>{
+const AddMemberPage=({
+  members,setMembers,
+  firstName,setFirstName,
+  lastName,setLastName,
+  role,setRole,
+  email,setEmail,
+  linkedIn,setLinkedIn,
+  github,setGithub,
+  bio,setBio,
+  profile_img,setProfile_img,
+  languages,setLanguages})=>
+{
 
-  const [firstName,setFirstName]=useState('');
-  const[lastName,setLastName]=useState('');
-  const[role,setRole]=useState('');
-  const[email,setEmail]=useState('');
-  const[linkedIn,setLinkedIn]=useState('');
-  const[github,setGithub]=useState('');
-  const[bio,setBio]=useState('');
-  const[profile_img,setProfile_img]=useState('');
-  const[languages,setLanguages]=useState('');
-  
-  const [members,setMembers]=useState(membersData);
-  
-
-  // Working on it
-  
   const addNewMember = (member) => {
-    console.log(members);
-    
     setMembers([...members,member]);
-  
-   
+    console.log('Members is' , members);
   };
+
+ 
 
   const handleSubmit=(event)=>{
     event.preventDefault();
     console.log(`My name is :${firstName} ${lastName} and role is ${role}`);
     let newMember={
       firstName: firstName,
-        lastName:lastName,
-        role: role,
-        email:email,
-        linkedIn:linkedIn,
-        github:github,
-        bio:bio,
-        profile_img:profile_img,
-        languages:languages,
+      lastName:lastName,
+      role: role,
+      email:email,
+      linkedIn:linkedIn,
+      github:github,
+      bio:bio,
+      profile_img:profile_img,
+      languages:languages,
         // featured: false,
     };
     // console.log(newMember);
     addNewMember(newMember);
-    console.log(addNewMember);
+    console.log(newMember);
+    
     
   };
 
@@ -71,7 +67,8 @@ const AddMemberPage=()=>{
           id='firstName'
           value={firstName}
           onChange={(event)=>
-            {setFirstName(event.target.value)}}
+            {setFirstName(event.target.value)
+            }}
           
           />
         </div>
@@ -83,7 +80,8 @@ const AddMemberPage=()=>{
           id='lastName'
           value={lastName}
           onChange={(event)=>
-            {setLastName(event.target.value)}}
+            {setLastName(event.target.value)
+            }}
           
           />
         </div>
@@ -97,8 +95,7 @@ const AddMemberPage=()=>{
             value={role}
             onChange={(event)=>{
               setRole(event.target.value)
-            }
-            }
+            }}
             />
         </div>
         <div className="row">
@@ -111,8 +108,7 @@ const AddMemberPage=()=>{
               value={email}
               onChange={(event)=>{
                 setEmail(event.target.value)
-              }
-              }
+              }}
               />
           </div>
           <div className='form-group col'>
@@ -179,7 +175,8 @@ const AddMemberPage=()=>{
               id='languages'
               value={languages}
               onChange={(event)=>{
-                setLanguages(event.target.value)
+                setLanguages(event.target.value.split(','))
+                
               }}
               />
           </div>
@@ -190,11 +187,11 @@ const AddMemberPage=()=>{
             <div className='col'>
               <button className='btn btn-primary btn-block'>Save Member</button>
             </div>
-            {/* <div className='col'>
+            <div className='col'>
               <button className='btn btn-warning btn-block' onClick={clearForm}>
-                Cancel
+                Clear
               </button>
-            </div> */}
+            </div>
           </div>
       </form>
       
