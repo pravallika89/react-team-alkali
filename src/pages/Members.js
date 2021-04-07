@@ -4,7 +4,7 @@ import MemberCard from '../components/MemberCard';
 
 const Members = ({members,setMembers}) => {
 
-   
+// const [members,setMembers]=useState(membersData);  
 const [searchTerm, setSearchTerm] = useState('');
 
 useEffect(() => {

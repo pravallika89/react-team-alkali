@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import {membersData} from '../data/membersData';
 
+
 const AddMemberPage=({
   members,setMembers,
   firstName,setFirstName,
@@ -13,10 +14,32 @@ const AddMemberPage=({
   profile_img,setProfile_img,
   languages,setLanguages})=>
 {
+  // const [members,setMembers]=useState(membersData);
+  // const [firstName,setFirstName]=useState('');
+  // const[lastName,setLastName]=useState('');
+  // const[role,setRole]=useState('');
+  // const[email,setEmail]=useState('');
+  // const[linkedIn,setLinkedIn]=useState('');
+  // const[github,setGithub]=useState('');
+  // const[bio,setBio]=useState('');
+  // const[profile_img,setProfile_img]=useState('');
+  // const[languages,setLanguages]=useState('');
 
   const addNewMember = (member) => {
-    setMembers([...members,member]);
-    console.log('Members is' , members);
+    if (member.id){
+      let i = members.findIndex(m => m.id === member.id);
+      let updatedMembers = members.filter(m => m.id !== member.id);
+      updatedMembers.splice(i, 0, member);
+      setMembers(updatedMembers);
+    }else{
+      member.id=Date.now();
+      membersData.push(member);
+      setMembers(membersData);
+      // setMembers([...members,member]);
+      console.log('Members is' , members);
+    }
+    
+    
   };
 
  

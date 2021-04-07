@@ -38,6 +38,7 @@ const AppRouter=()=>{
           bio={bio} setBio={setBio} 
           languages ={languages} setLanguages={setLanguages}
           profile_img={profile_img} setProfile_img={setProfile_img}/>}/>
+          
         <Route exact path='/members'  render={(props) => <MembersPage {...props} members={members} setMembers={setMembers} 
         />}/>
 
