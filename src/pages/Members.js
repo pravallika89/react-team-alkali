@@ -34,7 +34,7 @@ useEffect(() => {
 
             <div className="row">
                 <div className="col">
-                    <div className="form=group">
+                    <div className="form=group mb-5">
                         <input
                             type="text"
                             className="form-control"
