@@ -20,8 +20,10 @@ const AddMemberPage=()=>{
   
   const addNewMember = (member) => {
     console.log(members);
-    
-    setMembers([...members,member]);
+    membersData.push(member);
+    // setMembers([...members,member]);
+    setMembers(membersData);
+    console.log(membersData);
   
    
   };
@@ -43,7 +45,7 @@ const AddMemberPage=()=>{
     };
     // console.log(newMember);
     addNewMember(newMember);
-    console.log(addNewMember);
+    // console.log(addNewMember);
     
   };
 

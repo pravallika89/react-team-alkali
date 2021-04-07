@@ -53,7 +53,7 @@ const Members = () => {
             </div>
 
             <div className="row">
-                    {members.map(member => {
+                    {membersData.map(member => {
                         return (
                         <div className="col-sm-12 col-md-3" key={member.id}>
                             <MemberCard member={member} />
