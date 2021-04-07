@@ -1,31 +1,26 @@
-
 import { useState, useEffect } from 'react';
 import { membersData } from '../data/membersData';
 import MemberCard from '../components/MemberCard';
 
 const Members = () => {
 
-    const [members, setMembers] = useState([membersData]);
-    const [searchTerm, setSearchTerm] = useState('');
+const [members,setMembers]=useState(membersData);  
+const [searchTerm, setSearchTerm] = useState('');
 
-    useEffect(() => {
-
-        const foundMembers = membersData.filter(md => {
-            return (
-                md.firstName.toLowerCase().includes(searchTerm.toLowerCase()) +
-                md.lastName.toLowerCase().includes(searchTerm.toLowerCase())
+useEffect(() => {
+    const foundMembers = members.filter(md => {
+        return (
+             md.firstName.toLowerCase().includes(searchTerm.toLowerCase()) +
+            md.lastName.toLowerCase().includes(searchTerm.toLowerCase())
             );
         });
-
-        searchTerm === '' ? setMembers(membersData) : setMembers(foundMembers);
+        searchTerm === '' ? setMembers(members) : setMembers(foundMembers);
 
     }, [searchTerm]);
 
     const handleChange = event => {
-
-        console.log(event.target.value);
-        setSearchTerm(event.target.value);
-
+    console.log(event.target.value);
+    setSearchTerm(event.target.value);
     }
 
     return (
@@ -53,7 +48,7 @@ const Members = () => {
             </div>
 
             <div className="row">
-                    {membersData.map(member => {
+                    {members.map(member => {
                         return (
                         <div className="col-sm-12 col-md-3" key={member.id}>
                             <MemberCard member={member} />
