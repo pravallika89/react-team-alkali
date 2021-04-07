@@ -15,14 +15,14 @@ const MemberCard = ( {member} ) => {
                     <strong>Email: </strong>
                     {member.email}
                 </div>
-                <div className="my-2">
+                {/* <div className="my-2">
                     <strong>
                         Languages: 
                     </strong>
                     {member.languages?.map((language, i) => {
                         return <small key={i}> {language}{i === member.languages.length - 1 ? '' : ', ' } </small>
                     })}
-                </div>
+                </div> */}
                 <div className="my-2 d-flex justify-content-center text-center">
                     <Link to={`/members/${member.id}`} className="card-link">View Details
                     </Link>

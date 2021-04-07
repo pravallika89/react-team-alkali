@@ -11,7 +11,7 @@ const AddMemberPage=()=>{
   const[github,setGithub]=useState('');
   const[bio,setBio]=useState('');
   const[profile_img,setProfile_img]=useState('');
-  const[languages,setLanguages]=useState('');
+  const[languages,setLanguages]=useState([]);
   
   const [members,setMembers]=useState(membersData);
   
@@ -19,9 +19,18 @@ const AddMemberPage=()=>{
   // Working on it
   
   const addNewMember = (member) => {
-    console.log(members);
-    
-    setMembers([...members,member]);
+    if (member.id){
+      let i = members.findIndex(m => m.id === member.id);
+      let updatedMembers = members.filter(m => m.id !== member.id);
+      updatedMembers.splice(i, 0, member);
+      setMembers(updatedMembers);
+    }else{
+      member.id=Date.now();
+      membersData.push(member);
+      setMembers(membersData);
+      // setMembers([...members,member]);
+      console.log('Members is' , members);
+    }
   
    
   };
@@ -43,7 +52,7 @@ const AddMemberPage=()=>{
     };
     // console.log(newMember);
     addNewMember(newMember);
-    console.log(addNewMember);
+    // console.log(addNewMember);
     
   };
 
@@ -71,7 +80,8 @@ const AddMemberPage=()=>{
           id='firstName'
           value={firstName}
           onChange={(event)=>
-            {setFirstName(event.target.value)}}
+            {setFirstName(event.target.value)
+            }}
           
           />
         </div>
@@ -83,7 +93,8 @@ const AddMemberPage=()=>{
           id='lastName'
           value={lastName}
           onChange={(event)=>
-            {setLastName(event.target.value)}}
+            {setLastName(event.target.value)
+            }}
           
           />
         </div>
@@ -97,8 +108,7 @@ const AddMemberPage=()=>{
             value={role}
             onChange={(event)=>{
               setRole(event.target.value)
-            }
-            }
+            }}
             />
         </div>
         <div className="row">
@@ -111,8 +121,7 @@ const AddMemberPage=()=>{
               value={email}
               onChange={(event)=>{
                 setEmail(event.target.value)
-              }
-              }
+              }}
               />
           </div>
           <div className='form-group col'>
@@ -179,7 +188,8 @@ const AddMemberPage=()=>{
               id='languages'
               value={languages}
               onChange={(event)=>{
-                setLanguages(event.target.value)
+                setLanguages(event.target.value.split(','))
+                
               }}
               />
           </div>
@@ -190,17 +200,18 @@ const AddMemberPage=()=>{
             <div className='col'>
               <button className='btn btn-primary btn-block'>Save Member</button>
             </div>
-            {/* <div className='col'>
+            <div className='col'>
               <button className='btn btn-warning btn-block' onClick={clearForm}>
-                Cancel
+                Clear
               </button>
-            </div> */}
+            </div>
           </div>
       </form>
       
     </div>
   </div>
   )
+  
 };
 
 export default AddMemberPage;
