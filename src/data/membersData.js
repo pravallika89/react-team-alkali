@@ -61,6 +61,7 @@ export const membersData = [
         github: 'https://github.com/nakiacallaway',
         bio: 'lorem ipsum',
         profile_img: 'https:media-exp1.licdn.com/dms/image/C5603AQEJxnc9lSOCoQ/profile-displayphoto-shrink_[…]83200&v=beta&t=uPniVEimObQSGZ2prTaIqI41Q5sXqMTxmH9tZQYBA9Q',
+        languages:['html','css','react','javascript'],
         featured: false,
     },
     {
