@@ -2,7 +2,7 @@
 import {  useState,useEffect } from 'react';
 import {membersData} from '../data/membersData.js';
 import { Link } from 'react-router-dom';
-// import { FaStar, FaRegStar } from 'react-icons/fa';
+import { FaStar, FaRegStar } from 'react-icons/fa';
 
 
 const HomePage=()=>{
@@ -87,7 +87,7 @@ const HomePage=()=>{
                     View Profile
                     </Link>
                     <a href='javascript:void(0)' className='card-link'>
-                    {member.featured }
+                    {member.featured ? <FaStar style={{color:'orange'}} /> : <FaRegStar />}
                     </a>
                   </div>
                      
