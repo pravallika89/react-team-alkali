@@ -1,10 +1,12 @@
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import logo from '../data/logo.png'
 
 const Navbar = () => {
     return (
-      <nav className='navbar navbar-expand-lg navbar-dark bg-primary'>
-        <Link className='navbar-brand' to='/'>
-            Team Alkali
+      <nav className='navbar navbar-expand-lg navbar-dark  bg-primary'>
+        <Link className='navbar-brand ' to='/'>
+            {/* Team Alkali */}
+            <img  className='logo'src={logo} alt='Logo'/>
         </Link>
         <button
           className='navbar-toggler'
